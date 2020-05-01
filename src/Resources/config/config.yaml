@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  CreativeQuillJs\Service\QuillConfigInterface:
+    class: CreativeQuillJs\Service\QuillConfig
+    arguments:
+      - '@service_container'
+
+  creative_quill_js.form_type:
+    class: CreativeQuillJs\Form\QuillJsFormType
+    arguments:
+      - '@CreativeQuillJs\Service\QuillConfigInterface'
+    tags: [ name: 'form.type' ]
+

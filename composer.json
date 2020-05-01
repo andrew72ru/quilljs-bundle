@@ -1,0 +1,48 @@
+{
+  "name": "creative/quilljs-bundle",
+  "description": "Symfony bundle for form type with Quill WYSIWYG",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andrew Zhdanovskih",
+      "email": "azh@crtweb.ru"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.4.5",
+    "ext-ctype": "*",
+    "symfony/asset": "^5.0",
+    "symfony/config": "^5.0",
+    "symfony/dependency-injection": "^5.0",
+    "symfony/form": "^5.0",
+    "symfony/http-kernel": "^5.0",
+    "symfony/twig-bundle": "^5.0",
+    "symfony/yaml": "^5.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.16",
+    "matthiasnoback/symfony-dependency-injection-test": "^4.1",
+    "phpunit/phpunit": "^9.1",
+    "symfony/phpunit-bridge": "^5.0",
+    "symfony/var-dumper": "^5.0",
+    "vimeo/psalm": "^3.11"
+  },
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "CreativeQuillJs\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CreativeQuillJs\\Tests\\": "tests/"
+    }
+  }
+}

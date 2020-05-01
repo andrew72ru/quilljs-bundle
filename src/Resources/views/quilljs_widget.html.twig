@@ -1,0 +1,41 @@
+{% block quilljs_widget %}
+  <textarea style="display: none" {{ block('widget_attributes') }}>{{ value | raw }}</textarea>
+
+  <div class="editor-container">
+    <div id="{{ id }}-editor">{{ value | raw }}</div>
+  </div>
+
+  {{ block('q_js') }}
+{% endblock %}
+
+{% block q_js %}
+
+  {% set upload_route = quill.upload_route | default(false)
+      ? url(quill.upload_route, quill.upload_route_parameters) : false %}
+
+  {% if quill.quill_js_source %}
+    <script src="{{ asset(quill.quill_js_source) }}"></script>
+  {% endif %}
+  {% if quill.quill_css_source %}
+    <link rel="stylesheet" href="{{ asset(quill.quill_css_source) }}">
+  {% endif %}
+
+  <script>
+    const quillUploadUrl = '{{ upload_route }}' || null
+
+    const quill = new Quill('#{{ id }}-editor', {
+      theme: '{{ quill.theme | default('snow') }}',
+      uploadUrl: quillUploadUrl,
+      modules: {
+        toolbar: {
+          container: {{ quill.toolbar_options | json_encode | raw }},
+        },
+        history: true,
+      }
+    });
+
+    quill.on('text-change', () => {
+      document.getElementById('{{ id }}').innerHTML = quill.root.innerHTML;
+    })
+  </script>
+{% endblock %}

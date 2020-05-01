@@ -1,0 +1,24 @@
+# Default configuration.
+
+creative_quill_js:
+  enabled: true
+  theme: ~
+  quill_js_source: ~
+  quill_css_source: ~
+  upload_route: ~
+  upload_route_parameters:
+    type: 'image'
+  toolbar_options:
+    - ['bold', 'italic', 'underline', 'strike']
+    - ['blockquote', 'code-block']
+    - [{'header': [2, 3, false]}]
+    - [{'list': 'ordered'}, {'list': 'bullet'}]
+    - [{'script': 'sub'}, {'script': 'super'}]
+    - [{'indent': '-1'}, {'indent': '+1'}]
+    - [{'direction': 'rtl'}]
+    - [{'size': ['small', false, 'large', 'huge']}]
+    - ['link', 'image', 'video']
+    - ['clean']
+    - [{'color': [], 'background': []}]
+    - [{'font': []}]
+    - [{'align': []}]
