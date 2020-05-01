@@ -10,8 +10,15 @@
 
 {% block q_js %}
 
-  {% set upload_route = quill.upload_route | default(false)
-      ? url(quill.upload_route, quill.upload_route_parameters) : false %}
+  {% if quill.upload_route | default(false) %}
+    {% if 'http' in quill.upload_route %}
+      {% set upload_route = quill.upload_route %}
+    {% else %}
+      {% set upload_route = url(quill.upload_route, quill.upload_route_parameters) %}
+    {% endif %}
+  {% else %}
+    {% set upload_route = false %}
+  {% endif %}
 
   {% if quill.quill_js_source %}
     <script src="{{ asset(quill.quill_js_source) }}"></script>
