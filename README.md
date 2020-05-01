@@ -1,7 +1,7 @@
 Bundle for use QuillJS WYSIWYG-editor in Symfony form
 =====================================================
 
-[QuillJS](https://quilljs.com) is a modern and powerful rich text editor. This bundle allows you to use this edistor in Symfony form textarea field.
+[QuillJS](https://quilljs.com) is a modern and powerful rich text editor. This bundle allows you to use this editor in Symfony form textarea field.
 
 ## Installation
 
