@@ -2,3 +2,4 @@ vendor
 var
 tests/output
 .php_cs.cache
+composer.lock
