@@ -14,8 +14,8 @@ build:
   variables:
     DOCKER_DRIVER: overlay
   only:
-    refs:
-      - master
+    changes:
+      - Dockerfile
   before_script:
     - echo '192.168.88.240    git.crtweb.ru' >> /etc/hosts
     - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" $CI_REGISTRY --password-stdin
