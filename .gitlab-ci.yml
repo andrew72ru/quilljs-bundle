@@ -20,7 +20,7 @@ build:
     - echo '192.168.88.240    git.crtweb.ru' >> /etc/hosts
     - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" $CI_REGISTRY --password-stdin
   script:
-    - docker build -t $CI_REGISTRY_IMAGE/app -f Dockerfile
+    - docker build -t $CI_REGISTRY_IMAGE/app -f Dockerfile .
     - docker push $CI_REGISTRY_IMAGE/app
 
 test:
