@@ -34,6 +34,7 @@
       theme: '{{ quill.theme | default('snow') }}',
       uploadUrl: quillUploadUrl,
       uploadAsync: {{ quill.upload_async | json_encode }},
+      uploadType: '{{ upload_type | default('image') }}',
       modules: {
         toolbar: {
           container: {{ quill.toolbar_options | json_encode | raw }},
