@@ -28,6 +28,7 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('quill_js_source')->defaultValue('https://cdn.quilljs.com/1.3.6/quill.js')->end()
             ->scalarNode('quill_css_source')->defaultValue('https://cdn.quilljs.com/1.3.6/quill.snow.css')->end()
             ->scalarNode('upload_route')->defaultNull()->end()
+            ->booleanNode('upload_async')->defaultFalse()->end()
             ->arrayNode('upload_route_parameters')
                     ->arrayPrototype()->end()->scalarPrototype()->end()
             ->end()

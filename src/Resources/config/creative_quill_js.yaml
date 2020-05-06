@@ -8,6 +8,7 @@ creative_quill_js:
   upload_route: ~
   upload_route_parameters:
     type: 'image'
+  upload_async: false
   toolbar_options:
     - ['bold', 'italic', 'underline', 'strike']
     - ['blockquote', 'code-block']
