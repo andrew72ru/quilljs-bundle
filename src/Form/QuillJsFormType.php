@@ -8,7 +8,10 @@ declare(strict_types=1);
 namespace CreativeQuillJs\Form;
 
 use CreativeQuillJs\Service\QuillConfigInterface;
-use Symfony\Component\Form\{AbstractType, Extension\Core\Type\TextareaType, FormInterface, FormView};
+use Symfony\Component\Form\{AbstractType,
+    Extension\Core\Type\TextareaType,
+    FormInterface,
+    FormView};
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -32,6 +35,7 @@ class QuillJsFormType extends AbstractType
     public function buildView(FormView $view, FormInterface $form, array $options): void
     {
         $view->vars['quill'] = $options['quill'] ?? null;
+        $view->vars['upload_type'] = $options['upload_type'] ?? 'image';
     }
 
     /**
@@ -39,7 +43,10 @@ class QuillJsFormType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults(['quill' => $this->quillConfig->getConfig()]);
+        $resolver->setDefaults([
+            'quill' => $this->quillConfig->getConfig(),
+            'upload_type' => 'image',
+        ]);
     }
 
     /**

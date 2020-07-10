@@ -28,22 +28,25 @@
   {% endif %}
 
   <script>
-    const quillUploadUrl = '{{ upload_route }}' || null
+    (() => {
+      const quillUploadUrl = '{{ upload_route }}' || null
 
-    const quill = new Quill('#{{ id }}-editor', {
-      theme: '{{ quill.theme | default('snow') }}',
-      uploadUrl: quillUploadUrl,
-      uploadAsync: {{ quill.upload_async | json_encode }},
-      modules: {
-        toolbar: {
-          container: {{ quill.toolbar_options | json_encode | raw }},
-        },
-        history: true,
-      }
-    });
+      const quill = new Quill('#{{ id }}-editor', {
+        theme: '{{ quill.theme | default('snow') }}',
+        uploadUrl: quillUploadUrl,
+        uploadAsync: {{ quill.upload_async | json_encode }},
+        uploadType: '{{ upload_type | default('image') }}',
+        modules: {
+          toolbar: {
+            container: {{ quill.toolbar_options | json_encode | raw }},
+          },
+          history: true,
+        }
+      });
 
-    quill.on('text-change', () => {
-      document.getElementById('{{ id }}').innerHTML = quill.root.innerHTML;
-    })
+      quill.on('text-change', () => {
+        document.getElementById('{{ id }}').innerHTML = quill.root.innerHTML;
+      })
+    })()
   </script>
 {% endblock %}
